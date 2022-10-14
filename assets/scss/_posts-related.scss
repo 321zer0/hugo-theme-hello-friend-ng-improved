@@ -1,22 +1,23 @@
 .posts-related-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-auto-columns: 1fr;
+  max-width: 45vw;
+  margin: 0 auto;
 
   a {
     text-decoration: none;
 
     .post-related:hover {
-      scale: 1.05;
+      scale: 1.015;
     }
 
     .post-related {
-      min-width: 20rem;
-      min-height: 23rem;
+      grid-row: 1;
       display: flex;
       flex-direction: column;
-      margin: 1.2rem 1.55rem;
-      max-width: 17vw;
+      flex-wrap: wrap;
+      margin: 1.2rem 0;
+
       background-color: lightgray;
       color: black;
       box-shadow: .3rem .5rem #888888;
@@ -41,15 +42,20 @@
   }
 }
 
+@media screen and (max-width: 1400px) {
+  .posts-related-container {
+    max-width: 50vw;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .posts-related-container {
+    max-width: 60vw;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .posts-related-container {
-    flex-direction: column;
-    align-items: center;
-
-    .post-related {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 75vw;
-    }
+    max-width: 80vw;
   }
 }
