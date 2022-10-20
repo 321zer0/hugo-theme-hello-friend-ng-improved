@@ -231,3 +231,13 @@
     margin-right: 8px;
   }
 }
+
+/* Blog post: Hyperlink text color */
+div.post-content a {
+  color: rgb(30, 174, 219);
+}
+
+/* Blog post: Prevent text overflow */
+div.post-content {
+  word-wrap: break-word;
+}
