@@ -1,0 +1,43 @@
+.tag-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  
+  a {
+    text-decoration: none;
+  }
+}
+
+.tag-button {
+  margin: .5rem;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+  
+  :hover {
+    scale: .96;
+  }
+}
+
+.tag-button-inner {
+  display: flex;
+  background-color: aqua;
+  color: black;
+  width: max-content;
+  padding: .25rem;
+  border-radius: .75rem;
+}
+
+.tag-button-title {
+  margin: 0 .25rem;
+  margin-left: .5rem;
+}
+
+.tag-button-count {
+  margin: 0 .5rem;
+  // background-color: limegreen;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 1px 1px 5px #555 inset;
+}

@@ -1,0 +1,43 @@
+{{ define "main" }}
+    {{ $isIndexPage := strings.HasSuffix .Permalink "tags/" }}
+
+    <main class="posts">
+        {{ if $isIndexPage }}
+            <h1>{{ .Title }}</h1>
+        {{ else }}
+            <h1># {{ .Title }}</h1>
+        {{ end }}
+
+        {{ if .Content }}
+            <div class="content">{{ .Content }}</div>
+        {{ end }}
+
+        <div>
+            {{ if $isIndexPage }}
+                <div class="tag-button-container">
+                    {{ range .Data.Terms.ByCount }}
+                        <a class="tag-button" href="{{ .Page.Permalink }}">
+                            <div class="tag-button-inner">
+                                <div class="tag-button-title">
+                                    {{ .Page.Title }}
+                                </div>
+                                <div class="tag-button-count">
+                                    {{ .Count }}
+                                </div>
+                            </div>
+                        </a>
+                    {{ end }}
+                </div>
+            {{ else }}
+                <div class="tag-button-container">
+                    {{ range .Paginator.Pages }}
+                        <a class="tag-button" href="{{ .Permalink }}">
+                            {{ .Title }}
+                        </a>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+
+    </main>
+{{ end }}
