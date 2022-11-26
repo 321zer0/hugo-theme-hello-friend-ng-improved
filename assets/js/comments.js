@@ -17,7 +17,7 @@
             body: data
         };
 
-        const baseUrl = "https://techblog-comments.herokuapp.com/v3/entry/github";
+        const baseUrl = "https://zuoqe7h3y7j6d6bia3l5yxfpge0yqnql.lambda-url.us-west-1.on.aws/v3/entry/github";
         const endpoint = baseUrl + "/321zer0/techblog/main/comments";
 
         alert('Thank you! Your comment has been submitted and will be published shortly :)');
