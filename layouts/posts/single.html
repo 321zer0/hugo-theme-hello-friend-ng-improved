@@ -147,6 +147,8 @@
 
       {{ partial "comments.html" . }}
 
+      <script src="/js/md5.min.js"></script>
+
       <script>
         function changeValue(elementName, newValue)
         {
@@ -163,10 +165,15 @@
       <script>
           async function submitComment()
           {
+            const emailField = document.getElementById('comment-email');
+            const emailValue = emailField.value;
+            const emailHash = md5(emailValue);
+            emailField.value = emailHash;
+            
             const form = document.getElementById('comment-form');
             const formData = new FormData(form);
-
-            const plainFormData = Object.fromEntries(formData.entries());
+            // let plainFormData = Object.fromEntries(Array.from(formData.keys()).map(key => [key, formData.getAll(key).length > 1 ? formData.getAll(key) : formData.get(key)]))
+            let plainFormData = Object.fromEntries(formData.entries());
             const formDataJsonString = JSON.stringify(plainFormData);
 
             const opts = {
@@ -179,11 +186,12 @@
             };
 
             const endpoint = "http://34.210.119.105/comment";
-              alert('Thank you! Your comment has been submitted and will be published shortly :)');
-              form.reset();
-              document.getElementById('comment-submitted').animationName='fadeInCommentsDiag';
 
-              await fetch(endpoint, opts).catch(err => {});
+            alert('Thank you! Your comment has been submitted and will be published shortly :)');
+            form.reset();
+            document.getElementById('comment-submitted').animationName='fadeInCommentsDiag';
+
+            await fetch(endpoint, opts).catch(err => {});
           }
       </script>
       <script defer src="https://www.google.com/recaptcha/api.js"></script>
