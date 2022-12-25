@@ -82,7 +82,7 @@
             <input type="hidden" name="redirect" value="{{ .Permalink }}#comment-submitted">
             <input type="hidden" name="slug" value="{{ $postSlug }}">
             <input type="text" name="name" class="post-comment-field" placeholder="Name *" required/>
-            <input type="email" name="email" class="post-comment-field" placeholder="Email address (will not be public) *" required/>
+            <input type="email" id="comment-email" name="email" class="post-comment-field" placeholder="Email address (will not be public) *" required/>
             <input type="hidden" id="comment-parent" name="reply_to" value="">
             <textarea name="comment" class="post-comment-field" placeholder="Comment (markdown is accepted) *" required rows="10"></textarea>
             <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ .Site.Params.reCaptchaSiteKey }}">
