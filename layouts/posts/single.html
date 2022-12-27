@@ -178,8 +178,6 @@
                 body: formDataJsonString
             };
 
-            //const endpoint = "http://34.210.119.105/comment";
-            // const endpoint = "https://comments.techblog.dev/comment";
             const endpoint = "{{ .Site.Params.staticman.endpoint }}/{{ .Site.Params.staticman.username }}/{{ .Site.Params.staticman.repository }}/{{ .Site.Params.staticman.branch }}/comments";
 
             alert('Thank you! Your comment has been submitted and will be published shortly :)');
