@@ -147,6 +147,8 @@
 
       {{ partial "comments.html" . }}
 
+      <script src="/js/md5.min.js"></script>
+
       <script>
         function changeValue(elementName, newValue)
         {
@@ -163,6 +165,11 @@
       <script>
           async function submitComment()
           {
+            const emailField = document.getElementById('comment-email');
+            const emailValue = emailField.value;
+            const emailHash = md5(emailValue);
+            emailField.value = emailHash;
+            
             const form = document.getElementById('comment-form');
             const formData = new FormData(form);
             // let plainFormData = Object.fromEntries(Array.from(formData.keys()).map(key => [key, formData.getAll(key).length > 1 ? formData.getAll(key) : formData.get(key)]))
@@ -179,8 +186,7 @@
             };
 
             //const endpoint = "http://34.210.119.105/comment";
-            // const endpoint = "https://comments.techblog.dev/comment";
-            const endpoint = "{{ .Site.Params.staticman.endpoint }}/{{ .Site.Params.staticman.username }}/{{ .Site.Params.staticman.repository }}/{{ .Site.Params.staticman.branch }}/comments";
+            const endpoint = "https://comments.techblog.dev/comment";
 
             alert('Thank you! Your comment has been submitted and will be published shortly :)');
             form.reset();
