@@ -154,10 +154,13 @@
             window.location.hash = "#comment-form";
         }
 
-        function validateCommentCaptcha()
-        {
-            document.getElementById("comment-btn").disabled = false;
-        }
+        {{ if eq .Site.Params.staticman.EnableReCaptcha "true" }}
+          function validateCommentCaptcha()
+          {
+              document.getElementById("comment-btn").disabled = false;
+          }
+        {{ end }}
+
       </script>
 
       <script>

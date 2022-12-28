@@ -92,7 +92,8 @@
                 <div class="g-recaptcha" style="margin: 0 auto;" data-sitekey="{{ .Site.Params.staticman.reCaptchaSiteKey }}" data-callback="validateCommentCaptcha"></div>
             {{ end }}
 
-            <input id="comment-btn" type="submit" class="post-comment-field btn btn-primary comment-buttons" disabled="disabled" aria-disabled="true" onclick="submitComment();" value="Submit">
+            <input id="comment-btn" type="submit" class="post-comment-field btn btn-primary comment-buttons" {{ if eq .Site.Params.staticman.EnableReCaptcha "true" }}disabled="disabled" aria-disabled="true"{{ end }} onclick="submitComment();" value="Submit">
+
             <noscript>Your browser does not support JavaScript! You can't submit a comment.</noscript>
         </form>
     </section>
