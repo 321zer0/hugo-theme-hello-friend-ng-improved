@@ -82,12 +82,16 @@
             <input type="hidden" name="options[redirect]" value="{{ .Permalink }}#comment-submitted">
             <input type="hidden" name="options[slug]" value="{{ $postSlug }}">
             <input type="text" name="fields[name]" class="post-comment-field" placeholder="Name *" required/>
-            <input type="email" id="comment-email" name="fields[email]" class="post-comment-field" placeholder="Email address (will not be public) *" required/>
-            <input type="hidden" id="comment-parent" name="fields[reply_to]" value="">
+            <input type="email" name="fields[email]" id="comment-email" class="post-comment-field" placeholder="Email address (will not be public) *" required/>
+            <input type="hidden" name="fields[reply_to]" id="comment-parent" value="">
             <textarea name="fields[comment]" class="post-comment-field" placeholder="Comment (markdown is accepted) *" required rows="10"></textarea>
-            <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ .Site.Params.staticman.reCaptchaSiteKey }}">
-            <input type="hidden" name="options[reCaptcha][secret]" value="{{ .Site.Params.staticman.reCaptchaEncryptedSecretKey }}">
-            <div class="g-recaptcha" style="margin: 0 auto;" data-sitekey="{{ .Site.Params.staticman.reCaptchaSiteKey }}" data-callback="validateCommentCaptcha"></div>
+
+            {{ if eq .Site.Params.staticman.EnableReCaptcha "true" }}
+                <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ .Site.Params.staticman.reCaptchaSiteKey }}">
+                <input type="hidden" name="options[reCaptcha][secret]" value="{{ .Site.Params.staticman.reCaptchaEncryptedSecretKey }}">
+                <div class="g-recaptcha" style="margin: 0 auto;" data-sitekey="{{ .Site.Params.staticman.reCaptchaSiteKey }}" data-callback="validateCommentCaptcha"></div>
+            {{ end }}
+
             <input id="comment-btn" type="submit" class="post-comment-field btn btn-primary comment-buttons" disabled="disabled" aria-disabled="true" onclick="submitComment();" value="Submit">
             <noscript>Your browser does not support JavaScript! You can't submit a comment.</noscript>
         </form>
