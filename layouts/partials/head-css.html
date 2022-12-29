@@ -15,7 +15,12 @@
 {{ end -}}
 
 {{ $css := $scss | resources.Concat "css/main.css" | resources.ToCSS $options | fingerprint -}}
-<link rel="preload" href="{{ $css.RelPermalink }}" onload="this.rel='stylesheet'" as="style">
+
+{{ if eq .Site.Params.PreloadCSS "true" }}
+    <link rel="preload" href="{{ $css.RelPermalink }}" onload="this.rel='stylesheet'" as="style">
+{{ else }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" type="text/css">
+{{ end }}
 
 {{ range $val := $.Site.Params.customCSS }}
     {{ if gt (len $val) 0 }}
