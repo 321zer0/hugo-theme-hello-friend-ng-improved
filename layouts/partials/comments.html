@@ -161,4 +161,6 @@
         });
     }
 </script>
-<script defer src="https://www.google.com/recaptcha/api.js"></script>
+{{ if eq .Site.Params.staticman.EnableReCaptcha "true" }}
+    <script defer src="https://www.google.com/recaptcha/api.js"></script>
+{{ end }}
