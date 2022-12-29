@@ -3,11 +3,12 @@
         <div class="post-related-date">{{ .Date.Format "Jan 2, 2006" }}</div>
         <div class="post-related-title">{{ .Title }}</div>
         <div class="post-related-cover">
+            {{ $title := .Title }}
             {{ with .Resources }}
-                {{ with .GetMatch "{cover.*,*.jpg,*.png,*.jpeg}" }}
+                {{ with .GetMatch "{cover.webp,*.png,*.jpg,*.jpeg}" }}
                     {{ $cover := .Resize "600x" }}
                     {{ with $cover }}
-                        <img src="{{ .Permalink }}"/>
+                        <img src="{{ .Permalink }}" loading="lazy" alt="{{ $title }} cover image banner"/>
                     {{ end }}
                 {{ end }}
             {{ end }}
