@@ -1,0 +1,32 @@
+@import "neo-quote-warning";
+
+.neo-quote {
+    margin: 2rem 0.5rem;
+    display: flex;
+
+    .neo-quote-edge-left {
+        min-width: .6rem;
+    }
+    
+    .neo-quote-content {
+        display: flex;
+        flex-direction: column;
+
+        .neo-quote-content_inner {
+            margin: 0.5rem 1rem;
+    
+            p {
+                display: flex;
+                overflow-wrap: break-word;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Helvetica, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            .neo-quote-title p {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
