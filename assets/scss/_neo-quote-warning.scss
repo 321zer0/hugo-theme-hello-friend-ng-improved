@@ -1,11 +1,11 @@
-:root {
+:root[data-theme="light"] {
     --neo-quote-warning-edge: rgb(231, 192, 0);
     --neo-quote-warning-bg: rgb(255, 250, 227);
     --neo-quote-warning-title: rgb(173, 144, 0);
     --neo-quote-warning-text: rgb(116, 96, 0);
 }
 
-.dark-theme {
+:root[data-theme="dark"] {
     --neo-quote-warning-edge: rgb(206, 171, 0);
     --neo-quote-warning-bg: rgb(126, 117, 91);
     --neo-quote-warning-title: rgb(206, 172, 3);
@@ -21,8 +21,6 @@
         background-color: var(--neo-quote-warning-bg);
 
         .neo-quote-content_inner {
-            background-color: var(--neo-quote-warning-bg);
-    
             .neo-quote-title p {
                 color: var(--neo-quote-warning-title);
             }

@@ -21,13 +21,11 @@ function setTheme() {
     document.querySelector("#theme-toggle-dark").style.setProperty("display", "none");
     localStorage.setItem(themeStorage, "light");
     document.documentElement.setAttribute("data-theme", "light");
-    document.documentElement.classList.remove('dark-theme');
   } else if (chosenThemeIsDark || systemDarkMode) {
     document.querySelector("#theme-toggle-light").style.setProperty("display", "none");
     document.querySelector("#theme-toggle-dark").style.setProperty("display", "block");
     localStorage.setItem(themeStorage, "dark");
     document.documentElement.setAttribute("data-theme", "dark");
-    document.documentElement.classList.add('dark-theme');
   }
 }
 
