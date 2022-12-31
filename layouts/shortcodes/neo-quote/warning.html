@@ -1,21 +1,26 @@
-{{ if .Get "text" }}
-    <div class="neo-quote neo-quote-warning">
-        <div class="neo-quote-edge-left"></div>
-        <div class="neo-quote-content">
-            <div class="neo-quote-content_inner">
-                <div class="neo-quote-title">
-                    <p>
-                        {{ if .Get "title" }}
-                            {{ .Get "title" | markdownify }}
-                        {{ else }}
-                            Warning
-                        {{ end }}
-                    </p>
-                </div>
-                <div class="neo-quote-text">
+<div class="neo-quote neo-quote-warning">
+    <div class="neo-quote-edge-left"></div>
+    <div class="neo-quote-content">
+        <div class="neo-quote-content_inner">
+            <div class="neo-quote-title">
+                <p>
+                    {{ if .Get "title" }}
+                        {{ .Get "title" | markdownify }}
+                    {{ else }}
+                        Warning
+                    {{ end }}
+                </p>
+            </div>
+            <div class="neo-quote-text">
+                {{ if and (.Get "text") (.Inner) }}
                     <p>{{ .Get "text" | markdownify }}</p>
-                </div>
+                    {{ .Inner }}
+                {{ else if .Get "text" }}
+                    <p>{{ .Get "text" | markdownify }}</p>
+                {{ else if .Inner }}
+                    {{ .Inner }}
+                {{ end }}
             </div>
         </div>
     </div>
-{{ end }}
+</div>
