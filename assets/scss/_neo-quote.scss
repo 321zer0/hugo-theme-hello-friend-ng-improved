@@ -10,7 +10,8 @@
     }
     
     .neo-quote-content {
-        display: flex;
+        display: block;
+        width: 100%;
         flex-direction: column;
 
         .neo-quote-content_inner {
