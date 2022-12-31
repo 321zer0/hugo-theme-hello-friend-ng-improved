@@ -1,11 +1,12 @@
 @import "neo-quote-warning";
+@import "neo-quote-info";
 
 .neo-quote {
     margin: 2rem 0.5rem;
     display: flex;
 
     .neo-quote-edge-left {
-        min-width: .6rem;
+        min-width: .5rem;
     }
     
     .neo-quote-content {
@@ -13,7 +14,7 @@
         flex-direction: column;
 
         .neo-quote-content_inner {
-            margin: 0.5rem 1rem;
+            margin: 0.5rem 1.5rem;
     
             p {
                 display: flex;

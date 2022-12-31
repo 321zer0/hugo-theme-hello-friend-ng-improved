@@ -1,0 +1,33 @@
+:root[data-theme="light"] {
+    --neo-quote-info-edge: rgb(34, 153, 221);
+    --neo-quote-info-bg: rgb(243, 244, 245);
+    --neo-quote-info-title: rgb(30, 30, 30);
+    --neo-quote-info-text: rgb(53, 53, 53);
+}
+
+:root[data-theme="dark"] {
+    --neo-quote-info-edge: rgb(34, 153, 221);
+    --neo-quote-info-bg: rgb(43, 49, 58);
+    --neo-quote-info-title: rgb(124, 134, 146);
+    --neo-quote-info-text: rgb(124, 134, 146);
+}
+
+.neo-quote-info {
+    .neo-quote-edge-left {
+        background-color: var(--neo-quote-info-edge);
+    }
+    
+    .neo-quote-content {
+        background-color: var(--neo-quote-info-bg);
+
+        .neo-quote-content_inner {
+            .neo-quote-title p {
+                color: var(--neo-quote-info-title);
+            }
+            
+            .neo-quote-text p {
+                color: var(--neo-quote-info-text);
+            }
+        }
+    }
+}
