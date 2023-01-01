@@ -1,0 +1,33 @@
+:root[data-theme="light"] {
+    --neo-quote-danger-edge: rgb(204, 0, 0);
+    --neo-quote-danger-bg: rgb(255, 224, 224);
+    --neo-quote-danger-title: rgb(153, 0, 0);
+    --neo-quote-danger-text: rgb(102, 0, 0);
+}
+
+:root[data-theme="dark"] {
+    --neo-quote-danger-edge: rgb(148, 0, 0);
+    --neo-quote-danger-bg: rgb(128, 97, 97);
+    --neo-quote-danger-title: rgb(97, 0, 0);
+    --neo-quote-danger-text: rgb(58, 0, 0);
+}
+
+.neo-quote-danger {
+    .neo-quote-edge-left {
+        background-color: var(--neo-quote-danger-edge);
+    }
+    
+    .neo-quote-content {
+        background-color: var(--neo-quote-danger-bg);
+
+        .neo-quote-content_inner {
+            .neo-quote-title p {
+                color: var(--neo-quote-danger-title);
+            }
+            
+            .neo-quote-text {
+                color: var(--neo-quote-danger-text);
+            }
+        }
+    }
+}

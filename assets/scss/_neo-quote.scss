@@ -1,5 +1,18 @@
+@import "neo-quote-danger";
 @import "neo-quote-warning";
 @import "neo-quote-info";
+
+:root[data-theme="light"] {
+    --neo-quote-pre-bg: black;
+    --neo-quote-code-bg: black;
+    --neo-quote-code-color: lightgreen;
+}
+
+:root[data-theme="dark"] {
+    --neo-quote-pre-bg: black;
+    --neo-quote-code-bg: black;
+    --neo-quote-code-color: lime;
+}
 
 .neo-quote {
     margin: 2rem 0.5rem;
@@ -28,6 +41,15 @@
                 text-transform: uppercase;
                 font-weight: 600;
                 font-size: 1.2rem;
+            }
+
+            pre {
+                background-color: var(--neo-quote-pre-bg);
+            }
+
+            code {
+                color: var(--neo-quote-code-color);
+                background-color: var(--neo-quote-code-bg);
             }
         }
     }
