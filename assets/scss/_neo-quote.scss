@@ -1,3 +1,4 @@
+@import "neo-quote-quote";
 @import "neo-quote-danger";
 @import "neo-quote-warning";
 @import "neo-quote-info";
@@ -35,6 +36,16 @@
                 overflow-wrap: break-word;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Helvetica, sans-serif;
                 font-size: 1.125rem;
+            }
+
+            .neo-quote-head {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .neo-quote-icon {
+                    min-width: 2rem;
+                }
             }
 
             .neo-quote-title p {

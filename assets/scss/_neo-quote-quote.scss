@@ -1,0 +1,44 @@
+:root[data-theme="light"] {
+    --neo-quote-quote-edge: rgb(66, 185, 131);
+    --neo-quote-quote-bg: rgb(237, 237, 237);
+    --neo-quote-quote-title: rgb(38, 162, 105);
+    --neo-quote-quote-text: rgb(69, 69, 70);
+    --neo-quote-quote-author: black;
+}
+
+:root[data-theme="dark"] {
+    --neo-quote-quote-edge: rgb(66, 185, 131);
+    --neo-quote-quote-bg: rgb(43, 49, 58);
+    --neo-quote-quote-title: rgb(38, 162, 105);
+    --neo-quote-quote-text: gainsboro;
+    --neo-quote-quote-author: white;
+}
+
+.neo-quote-quote {
+    .neo-quote-edge-left {
+        background-color: var(--neo-quote-quote-edge);
+    }
+    
+    .neo-quote-content {
+        background-color: var(--neo-quote-quote-bg);
+
+        .neo-quote-content_inner {
+            .neo-quote-title {
+                color: var(--neo-quote-quote-title);
+                padding-left: 1rem;
+            }
+            
+            .neo-quote-text {
+                color: var(--neo-quote-quote-text);
+                font-style: italic;
+                margin-top: -1.5rem;
+            }
+
+            .neo-quote-author {
+                color: var(--neo-quote-quote-author);
+                font-weight: 600;
+                margin-bottom: -1.5rem;
+            }
+        }
+    }
+}
