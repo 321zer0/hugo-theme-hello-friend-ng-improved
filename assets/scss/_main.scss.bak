@@ -37,12 +37,22 @@ body {
     font-size: 1rem;
   }
 
-  [data-theme="dark"] & {
+  @media (prefers-color-scheme: dark) {
     background-color: $dark-background;
     color: $dark-color;
   }
 
-  [data-theme="light"] & {
+  @media (prefers-color-scheme: light) {
+    background-color: $light-background;
+    color: $light-color;
+  }
+
+  [data-theme=dark] & {
+    background-color: $dark-background;
+    color: $dark-color;
+  }
+
+  [data-theme=light] & {
     background-color: $light-background;
     color: $light-color;
   }
@@ -184,11 +194,19 @@ em, i, strong {
   // Default
   color: black;
 
-  [data-theme="dark"] & {
+  @media (prefers-color-scheme: dark) {
     color: white;
   }
 
-  [data-theme="light"] & {
+  @media (prefers-color-scheme: light) {
+    color: black;
+  }
+
+  [data-theme=dark] & {
+    color: white;
+  }
+
+  [data-theme=light] & {
     color: black;
   }
 }
@@ -204,21 +222,29 @@ code {
   // Default
   background: $light-background-secondary;
 
-  [data-theme="dark"] & {
+  @media (prefers-color-scheme: dark) {
     background: $dark-background-secondary;
   }
 
-  [data-theme="light"] & {
+  @media (prefers-color-scheme: light) {
+    background: $light-background-secondary;
+  }
+
+  [data-theme=dark] & {
+    background: $dark-background-secondary;
+  }
+
+  [data-theme=light] & {
     background: $light-background-secondary;
   }
 }
 
 pre {
-  [data-theme="dark"] & {
+  [data-theme=dark] & {
     background-color: $dark-background-secondary;
   }
 
-  [data-theme="light"] & {
+  [data-theme=light] & {
     background-color: $light-background-secondary;
   }
 
@@ -240,11 +266,19 @@ pre {
     // Default
     color: #ccc;
 
-    [data-theme="dark"] & {
+    @media (prefers-color-scheme: dark) {
       color: inherit;
     }
   
-    [data-theme="light"] & {
+    @media (prefers-color-scheme: light) {
+      color: #ccc;
+    }
+  
+    [data-theme=dark] & {
+      color: inherit;
+    }
+  
+    [data-theme=light] & {
       color: #ccc;
     }
   }
@@ -321,11 +355,19 @@ hr {
   // Default
   background: $light-border-color;
 
-  [data-theme="dark"] & {
+  @media (prefers-color-scheme: dark) {
     background: $dark-border-color;
   }
 
-  [data-theme="light"] & {
+  @media (prefers-color-scheme: light) {
+    background: $light-border-color;
+  }
+
+  [data-theme=dark] & {
+    background: $dark-border-color;
+  }
+
+  [data-theme=light] & {
     background: $light-border-color;
   }
 }
@@ -386,6 +428,11 @@ hr {
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
+}
+
+// Prism JS Additionals
+.highlight {
+  margin: 30px auto;
 }
 
 // Additional shortcodes

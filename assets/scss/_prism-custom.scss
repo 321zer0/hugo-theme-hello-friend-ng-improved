@@ -1,0 +1,37 @@
+:root {
+	--code-bg: rgb(25,25,25);
+}
+
+:root[data-theme="dark"] {
+	--code-bg: rgb(20,20,20);
+}
+
+div.highlight {
+	display: flex;
+	flex-direction: column;
+	margin: 30px auto;
+	
+	.code-toolbar {
+		pre {
+			padding-top: 2rem;
+		}
+
+		.toolbar {
+			margin: .5rem .75rem;
+
+			.toolbar-item {
+				margin: 0rem .25rem;
+			}
+		}
+	}	
+}
+
+pre[class*="language-"] {
+	// background: #1e1e1e;
+	background: var(--code-bg) !important;
+}
+
+:not(pre) > code[class*="language-"] {
+	// background: #1e1e1e;
+	background: var(--code-bg) !important;
+}
