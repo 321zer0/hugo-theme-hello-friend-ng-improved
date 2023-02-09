@@ -158,6 +158,10 @@
     /* color: darkorange; */
 }
 
+.post-comment-message div.highlight {
+    max-width: 100%;
+}
+
 .post-comment-footer {
     display: flex;
     justify-content: flex-end;
