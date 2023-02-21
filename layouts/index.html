@@ -31,10 +31,11 @@
 
             {{ if .Site.Params.ShowcaseSkills }}
             	<div>
-            	    {{ partial "showcase-skills.html" . }}
+            	    <!-- {{ partial "showcase-skills.html" . }} -->
             	</div>
             {{ end }}
-            
+
+            {{ partial "newsletter.html" . }}
 
         </div>
     </main>
