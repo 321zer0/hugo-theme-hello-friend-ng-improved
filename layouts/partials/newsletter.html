@@ -2,23 +2,107 @@
 
     <div class="newsletter_outer">
         <div class="newsletter_inner">
-            <div class="newsletter_text">
+
+            <div class="newsletter_heading">
                 <h2>Subscribe to TechBlog.dev</h2>
+            </div>
+
+            <div class="newsletter_text">
                 <p>Don't miss out on quality Linux and Programming tutorials.</p>
                 <p>Join for a chance to win goodies and exclusive offers.</p>
                 <p>We promise to not spam you, plus our newsletter is 100% <strong>FREE</strong>!</p>
             </div>
         
-            <form id="newsletter" action="https://assets.mailerlite.com/jsonp/337077/forms/80741128475772727/subscribe" method="post" target="_blank">
-                <input type="email" aria-label="email" aria-required="true" data-inputmask="" name="fields[email]" placeholder="Your email" autocomplete="email" aria-invalid="false" required>
-                <input type="submit" value="Subscribe">
+            <form id="newsletter-form" class="newsletter-form" onsubmit="event.preventDefault();">
+                <input type="email" aria-label="email" aria-required="true" data-inputmask="" name="email" placeholder="Your email" autocomplete="email" aria-invalid="false" required>
+                <input type="submit" value="Subscribe" onClick="subscribeNewsletter();">
             </form>
 
             <div class="newsletter_text">
-                <p>You can unsubscribe anytime.</p>
+                <p id="newsletter-msg">You can unsubscribe anytime.</p>
             </div>
+
+            <div id="newsletter-progress" class="progress progress-infinite" style="width: 100%; display: none;">
+                <div class="progress-bar3"></div>
+            </div>
+
         </div>
+
     </div>
 
 </section>
 
+<script>
+    async function setNewsletterProgress(msg)
+    {
+        const display = msg.toLowerCase().includes('wait') ? "flex" : "none";
+        // TODO: disable the form when msg contains "wait"
+        // TODO: enable AND reset the form when msg lacks "wait"
+
+        document.querySelector('#newsletter-progress').style.display = display;
+        document.querySelector('#newsletter-msg').innerHTML = msg;
+    }
+
+    async function subscribeNewsletter()
+    {
+        const form = document.querySelector('#newsletter-form');
+
+        if (!form.reportValidity()) {
+            setNewsletterProgress("That's not a valid email address &#128539;");
+            return;
+        }
+
+        const formData = new FormData(form);
+        const plainFormData = Object.fromEntries(formData.entries());
+	    const formDataJsonString = JSON.stringify(plainFormData);
+
+        const opts = {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: formDataJsonString
+        };
+
+        const endpoint = "{{ .Site.Params.Newsletter.endpoint }}";
+
+        setNewsletterProgress("Please wait...");
+
+        const response = await fetch(endpoint, opts)
+            .catch(err => {
+                message = "Sorry, an error has occured &#129298;.\nPlease try again later.";
+        });
+
+        const data = await response.json();
+        const jsonData = JSON.stringify(data);
+
+        const statusCode = data.statusCode;
+        let message = "";
+
+        if (response.ok) {
+            if (statusCode == 201) {
+                message = "Thank you! You are now subscribed &#128526;";
+                form.reset();
+            }
+            else if (statusCode == 200) {
+                message = "Reminder: You are already subscribed &#128539;"
+                form.reset();
+            }
+            else if (statusCode == 401) {
+                message = "Error: The API key is invalid &#129298;";
+            }
+            else if (statusCode == 422) {
+                message = "That's not a valid email address &#128539;"
+            }
+            else if (statusCode == 429) {
+                message = "Error: Too many attempts &#129298.\nPlease try again later.;"
+            }
+        } else {
+            message = "Sorry, an error has occured &#129298;.\nPlease try again later.";
+        }
+
+        setNewsletterProgress(message);
+    }
+</script>
