@@ -93,14 +93,15 @@
 
             <noscript>Your browser does not support JavaScript! You can't submit a comment.</noscript>
         </form>
+
+        <div id="comment-status">
+            <p id="comment-status-msg">Please wait...</p>
+        </div>
+
+        <div id="comment-progress" class="progress progress-infinite">
+            <div class="progress-bar3"></div>
+        </div>
     </section>
-
-    <div id="comment-submitted" class="post-comment-dialo" style="display: none;">
-        <p id="comment-submitted-title" style="font-weight: bold;">Thank You!</p>
-        <p id="comment-submitted-msg">Your comment has been submitted and will be published shortly. &#128522;</p>
-
-        <p id="comment-submitted-btn"><a href="#comments" onclick="document.getElementById('comment-submitted').style.display='none';" class="btn btn-primary comment-buttons ok">Ok</a></p>
-    </div>
 
 </section>
 
@@ -121,11 +122,19 @@
 </script>
 
 <script>
+    async function setCommentStatus(msg) {
+        const display = msg.toLowerCase().includes('wait') ? "flex" : "none";
+        document.querySelector('#comment-status-msg').innerHTML = msg;
+        document.querySelector('#comment-status').style.display = "flex";
+        document.querySelector('#comment-progress').style.display = display;
+    }
+
     async function submitComment()
     {
         const form = document.getElementById('comment-form');
 
         if (!form.reportValidity()) {
+            setCommentStatus("The form is incomplete! &#128539;");
             return;
         }
 
@@ -147,16 +156,10 @@
 
         const endpoint = "{{ .Site.Params.staticman.endpoint }}/{{ .Site.Params.staticman.username }}/{{ .Site.Params.staticman.repository }}/{{ .Site.Params.staticman.branch }}/comments";
 
-        document.getElementById('comment-submitted-title').innerHTML = "Submitting Comment...";
-        document.getElementById('comment-submitted-msg').innerHTML = "Please wait...Your comment is being sent..."
-        document.getElementById('comment-submitted').style.display = "flex";
-        document.getElementById('comment-submitted-btn').style.display = "none";
+        setCommentStatus("Please wait...");
 
         await fetch(endpoint, opts).catch(err => {
-            document.getElementById('comment-submitted-title').innerHTML = "Thank you!";
-            document.getElementById('comment-submitted-msg').innerHTML = "Your comment has been received and will be published shortly. &#128522;"
-            document.getElementById('comment-submitted').style.display = "flex";
-            document.getElementById('comment-submitted-btn').style.display = "flex";
+            setCommentStatus("Thank you! Your comment has been received and will be published shortly &#128522;");
             form.reset();
         });
     }

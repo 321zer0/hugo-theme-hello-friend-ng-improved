@@ -3,6 +3,24 @@
     --comment-reply-background-dark: rgb(50, 51, 52);
 }
 
+section#comments {
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+div#comment-status {
+    display: none;
+    margin: 0 auto;
+    margin-top: -1.5rem;
+    max-width: 90%;
+}
+
+div#comment-progress {
+    width: 90%;
+    display: none;
+    margin: 0 auto;
+}
+
 .post-comment {
     display: flex;
     flex-direction: column;
@@ -17,14 +35,6 @@
 .post-comment-reply {
     margin-top: 0;
     border-top: none;
-
-    @media (prefers-color-scheme: dark) {
-        background-color: var(--comment-reply-background-dark);
-    }
-
-    @media (prefers-color-scheme: light) {
-        background-color: var(--comment-reply-background-light);
-    }
 
     [data-theme=dark] & {
         background-color: var(--comment-reply-background-dark);
@@ -111,7 +121,7 @@
     opacity: 1.0;
     translate: 0 -6.3rem;
     text-transform: capitalize;
-    font-weight: bolder;
+    font-weight: 700;
     transition: .9s;
 }
 
@@ -168,18 +178,6 @@
     margin: 0.5rem 0;
 }
 
-.comment-buttons {
-    font-weight: bold;
-}
-
-[data-theme="dark"] .comment-buttons {
-    background: #3b3d42;
-}
-
-[data-theme="light"] .comment-buttons {
-    background: #eaeaea;
-}
-
 .post-comment-indent {
     margin-left: 2.75rem;
 }
@@ -220,28 +218,10 @@
     resize: vertical;
 }
 
-@keyframes fadeOutCommentsDiag {
-    from {opacity: 1; font-size: large;}
-    to {opacity: 0; font-size: 0;}
-}
-
-@keyframes fadeInCommentsDiag {
-    from {opacity: 0; font-size: 0;}
-    to {opacity: 1; font-size: large;}
-}
-
-.post-comment-dialog {
-    font-size: 0;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-fill-mode: both;
-    opacity: 0;
-}
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .post-comment {
-        max-width: 70vw;
+        max-width: 85vw;
+        min-width: 85vw;
     }
 
     .post-comment-header {

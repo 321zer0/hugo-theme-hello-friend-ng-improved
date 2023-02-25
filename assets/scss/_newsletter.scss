@@ -50,17 +50,6 @@ section#newsletter {
     
         input[type="submit"] {
           width: 30%;
-          text-transform: uppercase;
-          text-align: center;
-          line-height: 1rem;
-          color: white;
-          border-style: none;
-          cursor: pointer; 
-          background-color: rgb(0, 160, 250);
-        }
-
-        input[type="submit"]:hover {
-          background-color: rgb(0, 174, 239);
         }
       }
     }
@@ -101,10 +90,6 @@ div#newsletter-progress {
         min-height: 100%;
         min-width: 100%;
         margin: .25rem;
-      }
-
-      input[type="submit"] {
-        font-weight: 600;
       }
     }
   }
