@@ -1,5 +1,5 @@
 {{ if and (not $.Site.Params.DisableReadOtherPosts) (or .NextInSection .PrevInSection) }}
-    <div class="pagination">
+    <div class="pagination-related">
         <div class="pagination__title">
             <span class="pagination__title-h">{{ .Site.Params.ReadOtherPosts }}</span>
             <hr />
@@ -8,23 +8,23 @@
         {{ $related := .Site.RegularPages.Related . | first 4 }}
 
         <div class="posts-related-container">
-            {{ if eq (len $related) 0 }}
+                {{ if eq (len $related) 0 }}
 
-                {{ if .NextInSection }}
-                    {{ partial "pagination-related-embed.html" .NextInSection }}
-                {{ end }}
+                    {{ if .NextInSection }}
+                        {{ partial "pagination-related-embed.html" .NextInSection }}
+                    {{ end }}
 
-                {{ if .PrevInSection }}
-                    {{ partial "pagination-related-embed.html" .PrevInSection }}
-                {{ end }}
+                    {{ if .PrevInSection }}
+                        {{ partial "pagination-related-embed.html" .PrevInSection }}
+                    {{ end }}
 
-            {{ else }}
-                {{ with $related }}
-                        {{ range . }}
-                            {{ partial "pagination-related-embed.html" . }}
-                        {{ end }}
+                {{ else }}
+                    {{ with $related }}
+                            {{ range . }}
+                                {{ partial "pagination-related-embed.html" . }}
+                            {{ end }}
+                    {{ end }}
                 {{ end }}
-            {{ end }}
         </div>
 
     </div>

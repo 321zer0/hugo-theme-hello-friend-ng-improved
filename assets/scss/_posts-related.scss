@@ -1,61 +1,70 @@
-.posts-related-container {
-  display: grid;
-  grid-auto-columns: 1fr;
-  max-width: 45vw;
-  margin: 0 auto;
+div.pagination-related {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-  a {
-    text-decoration: none;
+  // TODO: Refactor this into proper file
+  .pagination__title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
 
-    .post-related:hover {
+div.posts-related-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  .post-related {
+    &:hover {
       scale: 1.015;
     }
 
-    .post-related {
-      grid-row: 1;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      margin: 1.2rem 0;
-
-      background-color: lightgray;
-      color: black;
-      box-shadow: .3rem .5rem #888888;
-      padding: 1rem;
-
-      .post-related-date {
-        margin: .5rem 0;
-        visibility: collapse;
-      }
-
-      .post-related-title {
-        margin: .25rem 0;
-        font-weight: bold;
-        font-size: large;
-      }
-
-      .post-related-cover {
-        min-width: 100%;
-        height: auto;
-      }
+    a {
+      text-decoration: none;
     }
-  }
-}
 
-@media screen and (max-width: 1400px) {
-  .posts-related-container {
-    max-width: 50vw;
-  }
-}
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 45%;
 
-@media screen and (max-width: 1200px) {
-  .posts-related-container {
-    max-width: 60vw;
+    background-color: thistle;
+    // background-color: palevioletred;
+    color: black;
+    padding: .75rem;
+
+    .post-related-date {
+      margin: .5rem 0;
+      display: none;
+    }
+
+    .post-related-title {
+      font-weight: bold;
+      font-size: large;
+      height: 6.5rem;
+    }
+
+    .post-related-cover {
+      min-width: 100%;
+      height: auto;
+    }
   }
 }
 
 @media screen and (max-width: 900px) {
-  .posts-related-container {
-    max-width: 80vw;
+  div.posts-related-container {
+    flex-direction: column;
+    align-items: center;
+
+    .post-related {
+      width: 90%;
+
+      .post-related-title {
+        height: fit-content;
+      }
+    }
   }
 }
