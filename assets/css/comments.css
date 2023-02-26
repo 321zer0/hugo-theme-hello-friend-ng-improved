@@ -16,7 +16,6 @@ section#comments {
 
 div#comment-status {
     display: none;
-    display: flex;
     justify-content: center;
     margin: 0 auto;
     margin-top: -1.5rem;
