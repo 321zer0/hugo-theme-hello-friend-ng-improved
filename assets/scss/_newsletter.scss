@@ -17,6 +17,11 @@ section#newsletter {
       align-items: center;
 
       div.newsletter_heading {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+
         h2 {
           font-weight: 800;
           font-size: 2rem;
@@ -63,7 +68,7 @@ div#newsletter-progress {
 
 @media screen and (max-width: 1200px) {
   div.newsletter_inner {
-    min-width: 50vw;
+    min-width: 60vw;
 
     div.newsletter_text {
       margin: .2rem 0;
