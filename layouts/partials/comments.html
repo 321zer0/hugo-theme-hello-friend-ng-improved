@@ -1,6 +1,12 @@
 <section id="comments">
-    <h2 class="comment-title"><a href="#comments">Comments</a></h2>
-    <section class="post-comments">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Comments</span>
+        <hr />
+    </div>
+
+    <div class="post-comments">
+        <h2 class="comment-title"><a href="#comments">Comments</a></h2>
+
         {{ $comments := readDir "data/comments" }}
         {{ $.Scratch.Add "hasComments" 0 }}
         {{ $postSlug := replace .File.Dir "posts/" "" }}
