@@ -16,6 +16,14 @@
             <form id="newsletter-form" class="newsletter-form" onsubmit="event.preventDefault();">
                 <input type="email" aria-label="email" aria-required="true" data-inputmask="" name="email" placeholder="Your email" autocomplete="email" aria-invalid="false" required>
                 <input type="submit" value="Subscribe" onClick="subscribeNewsletter();">
+                {{ $groups := "" }}
+                {{ range .Site.Params.Newsletter.groupIds }}
+                    {{ $group := . }}
+                    {{ $group = printf "%s" "\", " | printf "%s%s" $group | printf "%s%s" "\"" | printf "%s" }}
+                    {{ $groups = printf "%s" $group | printf "%s%s" $groups | printf "%s" }}
+                {{ end }}
+                {{ $groups = strings.TrimRight ", " $groups }}
+                <input type="hidden" value="[{{ $groups }}]" name="groups">
             </form>
 
             <div class="newsletter_text">
