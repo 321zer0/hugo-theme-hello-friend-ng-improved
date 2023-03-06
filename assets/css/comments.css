@@ -179,6 +179,16 @@ div#comment-progress {
     max-width: 100%;
 }
 
+.post-comment-message blockquote {
+    margin: 0rem;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+}
+
+.post-comment-message p {
+    margin-bottom: 0rem;
+}
+
 .post-comment-footer {
     display: flex;
     justify-content: flex-end;
