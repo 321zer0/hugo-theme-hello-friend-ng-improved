@@ -71,7 +71,10 @@ main[role="main"] {
   h1 {
 
     margin-top: -2rem;
-
+    font-size: 4.5rem;
+    font-weight: 900;
+    font-family: 'Hey August';
+    
     [data-theme="dark"] & {
       // White binary
       // background-image: url(https://img.freepik.com/free-vector/binary-code-white-background-with-floating-numbers_1017-25331.jpg?w=900&t=st=1690314863~exp=1690315463~hmac=d1f4a8e38ab0350ebc6013e0859e01979f3facc0c6f690d608fc04ccfd6c7136);
@@ -106,10 +109,6 @@ main[role="main"] {
     background-size: contain;
     width: 100%;
     color: transparent;
-    font-weight: 900;
-    font-size: 5.5rem;
-    font-family: 'Hey August';
-
     
     &::after {
       content: attr(data-heading);
