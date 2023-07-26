@@ -9,7 +9,7 @@
                <img src="{{ .Site.Params.Portrait.Path }}" class="circle" alt="{{ .Site.Params.Portrait.Alt }}" style="max-width:{{ .Site.Params.Portrait.MaxWidth }}" />
             {{ end }}
 
-            <h1>{{ .Site.Params.homeHeading }}</h1>
+            <h1 data-heading="{{ .Site.Params.homeHeading }}">{{ .Site.Params.homeHeading }}</h1>
             {{- with .Site.Params.jobShortText }}
                 <p>{{.}}</p>
             {{- end }}
