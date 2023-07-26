@@ -48,3 +48,11 @@
   src: url("../fonts/Inter-UI-BoldItalic.woff2") format("woff2"),
        url("../fonts/Inter-UI-BoldItalic.woff") format("woff");
 }
+
+@font-face {
+  font-family: 'Hey August';
+  font-style:  normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("../fonts/Hey-August.ttf") format("truetype");
+}
