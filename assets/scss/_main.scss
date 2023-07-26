@@ -62,6 +62,70 @@ h1 {
   font-size: 2.625rem;
 }
 
+@keyframes shine {
+	0% {background-position: -100%;}
+	100% {background-position: 100%;}
+}
+
+main[role="main"] {
+  h1 {
+
+    margin-top: -2rem;
+
+    [data-theme="dark"] & {
+      // White binary
+      // background-image: url(https://img.freepik.com/free-vector/binary-code-white-background-with-floating-numbers_1017-25331.jpg?w=900&t=st=1690314863~exp=1690315463~hmac=d1f4a8e38ab0350ebc6013e0859e01979f3facc0c6f690d608fc04ccfd6c7136);
+      
+      // Blue sky with palm trees
+      background-image: url(https://images.unsplash.com/photo-1542649350-a24209ce01b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80);
+
+      // Candy
+      // background-image: url(https://images.unsplash.com/photo-1630432198429-e5bebf02a377?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=372&q=80);
+    
+      text-shadow: 
+        2px 2px 5px rgba(#000, 0.2),
+        -2px 2px 5px rgba(#000, 0.2),
+        -2px -2px 5px rgba(#000, 0.2);
+    }
+  
+    [data-theme="light"] & {
+      // Red circuit board
+      // background-image: url(https://images.unsplash.com/photo-1580584126903-c17d41830450?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=739&q=80);
+      
+      // Black binary
+      // background-image: url(https://images.unsplash.com/photo-1569605803663-e9337d901ff9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80);
+
+      // Blue sky with palm trees
+      // background-image: url(https://images.unsplash.com/photo-1542649350-a24209ce01b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80);
+
+      // Blue sky with buildings
+      background-image: url(https://images.unsplash.com/photo-1444723121867-7a241cacace9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80);
+    }
+
+    -webkit-background-clip: text;
+    background-size: contain;
+    width: 100%;
+    color: transparent;
+    font-weight: 900;
+    font-size: 5.5rem;
+    font-family: 'Hey August';
+
+    
+    &::after {
+      content: attr(data-heading);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(45deg, rgba(255,255,255,0) 45%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0) 55%,rgba(255,255,255,0) 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+      mix-blend-mode: screen;
+      animation: shine 2.75s infinite;
+      background-size: 200%;
+    }
+  }
+}
+
 h2 {
   font-size: 1.625rem;
   margin-top: 2.5em;
