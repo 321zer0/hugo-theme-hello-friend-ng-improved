@@ -1,5 +1,5 @@
 <meta name="title" property="og:title" content="{{ .Title | markdownify }}">
-<meta name="description" property="og:description" content="{{ .Params.Description | markdownify }}">
+<meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.HomeDescription }}{{ else }}{{ if .Params.Description }}{{ .Params.Description }}{{ else }}{{ .Summary | plainify }}{{ end }}{{ end }}">
 <meta name="type" property="og:type" content="article">
 <meta name="url" property="og:url" content="{{ .Permalink }}">
 <meta name="image" property="og:image" content="{{ .Permalink }}cover.png">
