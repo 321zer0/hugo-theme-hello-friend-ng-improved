@@ -232,12 +232,24 @@
   }
 }
 
-/* Blog post: Hyperlink text color */
-div.post-content a {
-  color: rgb(30, 174, 219);
-}
+// Both blog posts and recent posts
+article {
+    letter-spacing: 0.111px;
 
-/* Blog post: Prevent text overflow */
-div.post-content {
-  word-wrap: break-word;
+  // Blog posts only
+  div.post-content {
+    /* Prevent text overflow */
+    word-wrap: break-word;
+
+    // Hyperlink color
+    a {
+      color: rgb(30, 174, 219);
+    }
+  
+    /* Article text */
+    p {
+      font-family: Merriweather, Georgia, "Times New Roman", Times, serif;
+      font-size: 16px;
+    }
+  }
 }
