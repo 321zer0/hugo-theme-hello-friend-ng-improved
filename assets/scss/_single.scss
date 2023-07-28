@@ -234,11 +234,9 @@
 
 // Both blog posts and recent posts
 article {
-    letter-spacing: 0.111px;
-
   // Blog posts only
   div.post-content {
-    /* Prevent text overflow */
+    // Prevent text overflow
     word-wrap: break-word;
 
     // Hyperlink color
@@ -246,10 +244,10 @@ article {
       color: rgb(30, 174, 219);
     }
   
-    /* Article text */
+    // Article text
     p {
       font-family: Merriweather, Georgia, "Times New Roman", Times, serif;
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 }
