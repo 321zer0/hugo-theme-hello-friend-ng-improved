@@ -79,13 +79,13 @@ main[role="main"] {
     [data-theme="dark"] & {
       // White binary
       // background-image: url(https://img.freepik.com/free-vector/binary-code-white-background-with-floating-numbers_1017-25331.jpg?w=900&t=st=1690314863~exp=1690315463~hmac=d1f4a8e38ab0350ebc6013e0859e01979f3facc0c6f690d608fc04ccfd6c7136);
-      
+
       // Blue sky with palm trees
-      background-image: url(https://images.unsplash.com/photo-1542649350-a24209ce01b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80);
+      background-image: url(/images/photo-1542649350-a24209ce01b5.avif);
 
       // Candy
       // background-image: url(https://images.unsplash.com/photo-1630432198429-e5bebf02a377?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=372&q=80);
-    
+
       text-shadow: 
         2px 2px 5px rgba(#000, 0.2),
         -2px 2px 5px rgba(#000, 0.2),
@@ -99,11 +99,8 @@ main[role="main"] {
       // Black binary
       // background-image: url(https://images.unsplash.com/photo-1569605803663-e9337d901ff9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80);
 
-      // Blue sky with palm trees
-      // background-image: url(https://images.unsplash.com/photo-1542649350-a24209ce01b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80);
-
       // Blue sky with buildings
-      background-image: url(https://images.unsplash.com/photo-1444723121867-7a241cacace9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80);
+      background-image: url(/images/henning-witzel-ukvgqriuOgo-unsplash.jpg);
     }
 
     -webkit-background-clip: text;
