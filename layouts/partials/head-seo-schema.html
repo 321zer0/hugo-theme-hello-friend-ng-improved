@@ -1,0 +1,2 @@
+<meta itemprop="name" content="{{ .Title | markdownify }}">
+<meta itemprop="description" content="{{ if .IsHome }}{{ .Site.Params.HomeDescription }}{{ else }}{{ if .Params.Description }}{{ .Params.Description }}{{ else }}{{ .Summary | plainify }}{{ end }}{{ end }}">

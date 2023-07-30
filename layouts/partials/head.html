@@ -28,7 +28,7 @@
 <!-- Icons -->
 {{- partial "favicons.html" . }}
 
-{{ template "_internal/schema.html" . }}
+{{ partial "head-seo-schema.html" . }}
 {{ partial "head-seo-twitter.html" . }}
 
 {{ if isset .Site.Taxonomies "series" }}
