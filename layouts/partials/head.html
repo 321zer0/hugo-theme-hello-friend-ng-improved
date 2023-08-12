@@ -43,6 +43,12 @@
     <meta property="article:published_time" content="{{ time .Date }}" />
 {{ end }}
 
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//pagead2.googlesyndication.com' />
+{{ if .Site.Params.PiwikPro }}
+<link rel='dns-prefetch' href='//{{ .Site.Params.PiwikPro.AccountName }}.containers.piwik.pro' />
+{{ end}}
+
 <!-- RSS -->
 {{ with .OutputFormats.Get "rss" -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
