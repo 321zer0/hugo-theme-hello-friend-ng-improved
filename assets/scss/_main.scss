@@ -67,9 +67,9 @@ h1 {
 	100% {background-position: 100%;}
 }
 
-main[role="main"] {
+main[class="homepage"] {
+  margin: 4em 5vw 0 5vw;
   h1 {
-
     margin-top: -2rem;
     font-size: 4.5rem;
     font-weight: 900;
