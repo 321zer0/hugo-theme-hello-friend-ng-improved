@@ -82,12 +82,12 @@
                 <p>Be the first to leave a comment! 🎉</p>
             {{ end }}
             <h3 class="prompt">Leave a comment</h3>
-            <input type="hidden" name="options[redirect]" value="{{ .Permalink }}#comment-submitted">
-            <input type="hidden" name="options[slug]" value="{{ $postSlug }}">
-            <input type="text" name="fields[name]" class="post-comment-field" placeholder="Name *" required/>
-            <input type="email" name="fields[email]" id="comment-email" class="post-comment-field" placeholder="Email address (will not be public) *" required/>
-            <input type="hidden" name="fields[reply_to]" id="comment-parent" value="">
-            <textarea name="fields[comment]" class="post-comment-field" placeholder="Comment (markdown is accepted) *" required rows="10"></textarea>
+            <input type="hidden" name="redirectUrl" value="{{ .Permalink }}#comment-submitted">
+            <input type="hidden" name="slug" value="{{ $postSlug }}">
+            <input type="text" name="name" class="post-comment-field" placeholder="Name *" required/>
+            <input type="email" name="email" id="comment-email" class="post-comment-field" placeholder="Email address (will not be public) *" required/>
+            <input type="hidden" name="replyTo" id="comment-parent" value="">
+            <textarea name="comment" class="post-comment-field" placeholder="Comment (markdown is accepted) *" required rows="10"></textarea>
 
             {{ if eq .Site.Params.staticman.EnableReCaptcha "true" }}
                 <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ .Site.Params.staticman.reCaptchaSiteKey }}">
@@ -146,10 +146,11 @@
 
         const formData = new FormData(form);
         // let plainFormData = Object.fromEntries(Array.from(formData.keys()).map(key => [key, formData.getAll(key).length > 1 ? formData.getAll(key) : formData.get(key)]))
-        // let plainFormData = Object.fromEntries(formData.entries());
-        // const formDataJsonString = JSON.stringify(plainFormData);
+        const plainFormData = Object.fromEntries(formData.entries());
+	    const formDataJsonString = JSON.stringify(plainFormData);
 
-        let bodyData = new URLSearchParams(formData);
+        // For Staticman only
+        // let bodyData = new URLSearchParams(formData);
 
         const opts = {
             method: "POST",
@@ -157,17 +158,28 @@
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Accept": "application/json"
             },
-            body: bodyData
+            body: formDataJsonString
         };
 
-        const endpoint = "{{ .Site.Params.staticman.endpoint }}/{{ .Site.Params.staticman.username }}/{{ .Site.Params.staticman.repository }}/{{ .Site.Params.staticman.branch }}/comments";
-
+        // const endpoint = "{{ .Site.Params.staticman.endpoint }}/{{ .Site.Params.staticman.username }}/{{ .Site.Params.staticman.repository }}/{{ .Site.Params.staticman.branch }}/comments";
+        const endpoint = "{{ .Site.Params.CustomComments.endpoint }}";
+    
         setCommentStatus("Please wait...");
 
-        await fetch(endpoint, opts).catch(err => {
-            setCommentStatus("Thank you! Your comment has been received and will be published shortly &#128522;");
+        const response = await fetch(endpoint, opts).catch(err => {
+            // setCommentStatus("Thank you! Your comment has been received and will be published shortly &#128522;");
+            setCommentStatus("An error has occured! Please try again later.");
             form.reset();
         });
+
+        if (response.ok)
+        {
+            setCommentStatus(response.json());
+        }
+        else
+        {
+            setCommentStatus("An error has occured! Response did not return OK");
+        }
     }
 </script>
 {{ if eq .Site.Params.staticman.EnableReCaptcha "true" }}
