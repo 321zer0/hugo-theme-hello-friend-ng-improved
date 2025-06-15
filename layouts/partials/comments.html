@@ -167,18 +167,18 @@
         setCommentStatus("Please wait...");
 
         const response = await fetch(endpoint, opts).catch(err => {
-            // setCommentStatus("Thank you! Your comment has been received and will be published shortly &#128522;");
-            setCommentStatus("An error has occured! Please try again later.");
+            setCommentStatus("Sorry, an error has occured! Please try again later.");
             form.reset();
         });
 
         if (response.ok)
         {
-            setCommentStatus(response.json());
+            const data = await response.json();
+            setCommentStatus(data.msg);
         }
         else
         {
-            setCommentStatus("An error has occured! Response did not return OK");
+            setCommentStatus("Sorry, an error has occured. Please try again later.");
         }
     }
 </script>
