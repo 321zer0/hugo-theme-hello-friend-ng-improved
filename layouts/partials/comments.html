@@ -149,13 +149,13 @@
         const plainFormData = Object.fromEntries(formData.entries());
 	    const formDataJsonString = JSON.stringify(plainFormData);
 
-        // For Staticman only
-        // let bodyData = new URLSearchParams(formData);
+        // let bodyData = new URLSearchParams(formData); // Old API
 
         const opts = {
             method: "POST",
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
+                // "Content-Type": "application/x-www-form-urlencoded", // Old API
+                "Content-Type": "application/json",
                 "Accept": "application/json"
             },
             body: formDataJsonString
